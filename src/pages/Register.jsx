@@ -22,11 +22,11 @@ export default function Register() {
     e.preventDefault()
 
    try {
-    const request= await post('/auth/register',value)
+    const request= await post('https://notes-server-two.vercel.app/auth/register',value)
     const reposne= request.data
     if(reposne.success){
       toast.success(reposne.message)
-      navigate('/login')
+      navigate('https://notes-server-two.vercel.app/login')
     }
     console.log('object',reposne)
    } catch (error) {
@@ -63,7 +63,7 @@ export default function Register() {
         <button className='btn btn-success w-100 mb-3'>Register</button>
 
         <div className='text-center'>
-          <p>Already have an account <Link to={'/login'}>Login</Link></p>
+          <p>Already have an account <Link to={'https://notes-server-two.vercel.app/login'}>Login</Link></p>
         </div>
       </form>
     </div>

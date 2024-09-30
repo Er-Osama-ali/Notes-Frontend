@@ -25,7 +25,7 @@ export default function Home() {
     useEffect(() => {
         const getnotes = async () => {
             try {
-                const request = await get('/notes/GetNotes')
+                const request = await get('https://notes-server-two.vercel.app/notes/GetNotes')
                 const response = request.data
                 setNotes(response.Notes)
 
@@ -48,7 +48,7 @@ export default function Home() {
 
     const handeCretNote = async () => {
         try {
-            const request = await post('/notes/createnote', { title })
+            const request = await post('https://notes-server-two.vercel.app/notes/createnote', { title })
             const respone = request.data
             if (respone.success) {
                 toast.success(respone.message)
@@ -65,7 +65,7 @@ export default function Home() {
     const handleUpdateNote = async () => {
         try {
 
-            const request = await put(`/notes/updatenotes/${notesId}`, { title: updatenote })
+            const request = await put(`https://notes-server-two.vercel.app/notes/updatenotes/${notesId}`, { title: updatenote })
             const response = request.data
             if (response.success) {
                 toast.success(response.message)
@@ -81,7 +81,7 @@ export default function Home() {
 
     const handleDelete = async () => {
         try {
-            const requrest = await delet(`/notes/deleteNotes/${notesId}`)
+            const requrest = await delet(`https://notes-server-two.vercel.app/notes/deleteNotes/${notesId}`)
             const response = requrest.data
             if (response.success) {
                 toast.success(response.message)

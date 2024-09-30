@@ -8,12 +8,12 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const request = await post('/auth/logout')
+      const request = await post('https://notes-server-two.vercel.app/auth/logout')
       const response = request.data
       
       if (response.success) {
         toast.success(response.message)
-        navigate('/login')
+        navigate('https://notes-server-two.vercel.app/login')
       }
     } catch (error) {
       if (error.response) {

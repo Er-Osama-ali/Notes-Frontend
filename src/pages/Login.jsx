@@ -21,7 +21,7 @@ export default function Login() {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
-      const request= await post('/auth/login',value)
+      const request= await post('https://notes-server-two.vercel.app/auth/login',value)
       const reposne= request.data
       if(reposne.success){
         toast.success(reposne.message)
@@ -60,7 +60,7 @@ export default function Login() {
           <button className='btn btn-success w-100 mb-3'>Login</button>
 
           <div className='text-center'>
-            <p>Don't have an account? <Link to={'/register'}>Register</Link></p>
+            <p>Don't have an account? <Link to={'https://notes-server-two.vercel.app/register'}>Register</Link></p>
           </div>
         </form>
       </div>
